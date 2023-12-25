@@ -50,3 +50,16 @@ document
   .addEventListener('click', function () {
     message.remove();
   });
+
+message.style.backgroundColor = '#37383d';
+message.style.width = '105%';
+
+message.style.height =
+  Number.parseFloat(getComputedStyle(message).height, 10) + 40 + 'px';
+
+// document.documentElement.style.setProperty('--color-primary', 'orangered ');
+
+const logo = document.querySelector('.nav__logo');
+// console.log(logo.alt);
+// console.log(logo.src);
+// console.log(logo.className);
