@@ -32,56 +32,52 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
-// console.log(document.getElementById('section--1'));
-const allButtons = document.getElementsByTagName('button');
-// console.log(allButtons);
-const header = document.querySelector('.header');
-const message = document.createElement('div');
-message.classList.add('cookie-message');
-message.innerHTML =
-  'we use cookies for improved functionality. <button class="btn btn-close-cookie">Got it!</button>';
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
 
-// header.prepend(message);
-// header.append(message.cloneNode(true));
-header.append(message);
+btnScrollTo.addEventListener('click', function (e) {
+  e.preventDefault();
+  const s1coords = section1.getBoundingClientRect();
+  // console.log(s1coords);
+  // console.log(e.target.getBoundingClientRect());
+  // console.log('current scroll xy', window.scrollX, scrollY);
 
-document
-  .querySelector('.btn-close-cookie')
-  .addEventListener('click', function () {
-    message.remove();
-  });
+  // console.log(
+  //   'height/width',
+  //   document.documentElement.clientHeight,
+  //   document.documentElement.clientWidth
+  // );
 
-message.style.backgroundColor = '#37383d';
-message.style.width = '105%';
+  // Scrolling
+  // window.scrollTo(
+  //   s1coords.left + window.scrollX,
+  //   s1coords.top + window.scrollY
+  // );
 
-message.style.height =
-  Number.parseFloat(getComputedStyle(message).height, 10) + 40 + 'px';
+  // window.scrollTo({
+  //   left: s1coords.left + window.scrollX,
+  //   top: s1coords.top + window.scrollY,
+  //   behavior: 'smooth',
+  // });
 
-// document.documentElement.style.setProperty('--color-primary', 'orangered ');
+  section1.scrollIntoView({ behavior: 'smooth' });
+});
 
-const logo = document.querySelector('.nav__logo');
-// console.log(logo.alt);
-// console.log(logo.src);
-// console.log(logo.className);
+// const h1 = document.querySelector('h1');
 
-logo.setAttribute('designer', 'Sakib Rana');
+// const alert1 = function (e) {
+//   alert('new');
+//   // h1.removeEventListener('mouseenter', alert1);
+// };
 
-// console.log(logo.getAttribute('designer'));
+// h1.addEventListener('mouseenter', alert1);
 
-// console.log(logo.getAttribute('src'));
+// setTimeout(() => h1.removeEventListener('mouseenter', alert1), 9000);
 
-const link = document.querySelector('.nav__link--btn');
-// console.log(link.href);
-// console.log(link.getAttribute('href'));
+// h1.addEventListener('mouseenter', function (e) {
+//   alert('great');
+// });
 
-// Data Attributes
-
-// console.log(logo.dataset.versionNumber);
-
-// Classes
-// logo.classList.add('c');
-// logo.classList.remove('c');
-// logo.classList.toggle('c');
-// logo.classList.contains('c');
-//don't use this
-// logo.className = 'jonas';
+// h1.onmouseenter = function (e) {
+//   alert('howdy');
+// };
