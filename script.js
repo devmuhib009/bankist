@@ -32,6 +32,19 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
+// Page Navigation
+
+document.querySelectorAll('.nav__link').forEach(function (el) {
+  el.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    const id = this.getAttribute('href');
+    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+// Page Navigation End
+
 const btnScrollTo = document.querySelector('.btn--scroll-to');
 const section1 = document.querySelector('#section--1');
 
@@ -81,3 +94,33 @@ btnScrollTo.addEventListener('click', function (e) {
 // h1.onmouseenter = function (e) {
 //   alert('howdy');
 // };
+
+// const randomInt = (min, max) =>
+//   Math.floor(Math.random() * (max - min + 1) + min);
+
+// const randomColor = () =>
+//   `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
+
+// // console.log(randomColor(0, 255));
+
+// const navLink = document
+//   .querySelector('.nav__link')
+//   .addEventListener('click', function (e) {
+//     this.style.backgroundColor = randomColor();
+//     console.log('Link', e.target, e.currentTarget);
+//     // e.stopPropagation();
+//   });
+
+// const navLinks = document
+//   .querySelector('.nav__links')
+//   .addEventListener('click', function (e) {
+//     this.style.backgroundColor = randomColor();
+//     console.log('Container', e.target, e.currentTarget);
+//   });
+
+// const nav = document
+//   .querySelector('.nav')
+//   .addEventListener('click', function (e) {
+//     this.style.backgroundColor = randomColor();
+//     console.log('NAV', e.target, e.currentTarget);
+//   });
