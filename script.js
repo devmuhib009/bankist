@@ -63,3 +63,25 @@ const logo = document.querySelector('.nav__logo');
 // console.log(logo.alt);
 // console.log(logo.src);
 // console.log(logo.className);
+
+logo.setAttribute('designer', 'Sakib Rana');
+
+// console.log(logo.getAttribute('designer'));
+
+// console.log(logo.getAttribute('src'));
+
+const link = document.querySelector('.nav__link--btn');
+// console.log(link.href);
+// console.log(link.getAttribute('href'));
+
+// Data Attributes
+
+// console.log(logo.dataset.versionNumber);
+
+// Classes
+// logo.classList.add('c');
+// logo.classList.remove('c');
+// logo.classList.toggle('c');
+// logo.classList.contains('c');
+//don't use this
+// logo.className = 'jonas';
