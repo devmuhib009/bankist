@@ -152,9 +152,32 @@ const h1 = document.querySelector('h1');
 // console.log(h1.previousElementSibling);
 // console.log(h1.nextElementSibling);
 
-console.log(h1.parentElement.children);
-[...h1.parentElement.children].forEach(function (e) {
-  if (e !== h1) {
-    e.style.background = 'green';
-  }
+// console.log(h1.parentElement.children);
+// [...h1.parentElement.children].forEach(function (e) {
+//   if (e !== h1) {
+//     e.style.background = 'green';
+//   }
+// });
+
+// Tabbed Components
+
+const tabs = document.querySelectorAll('.operations__tab');
+
+const tabsContainer = document.querySelector('.operations__tab-container');
+
+const tabsContent = document.querySelectorAll('.operations__content');
+
+// tabs.forEach(t => t.addEventListener('click', () => console.log('tab')));
+
+tabsContainer.addEventListener('click', e => {
+  const clicked = e.target.closest('.operations__tab');
+  if (!clicked) return;
+  tabs.forEach(t => t.classList.remove('operations__tab--active'));
+  clicked.classList.add('operations__tab--active');
+  tabsContent.forEach(c => c.classList.remove('operations__content--active'));
+
+  // activate content area
+  document
+    .querySelector(`.operations__content--${clicked.dataset.tab}`)
+    .classList.add('operations__content--active');
 });
