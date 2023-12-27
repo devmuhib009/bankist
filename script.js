@@ -286,6 +286,11 @@ const prevSlide = function () {
 btnRight.addEventListener('click', nextSlide);
 btnLeft.addEventListener('click', prevSlide);
 
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'ArrowLeft') prevSlide();
+  e.key === 'ArrowRight' && nextSlide();
+});
+
 const slider = document.querySelector('.slider');
 slider.style.transform = 'scale(0.5';
 slider.style.overflow = 'visible';
